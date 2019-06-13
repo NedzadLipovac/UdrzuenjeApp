@@ -1,0 +1,58 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<style>
+  h2{
+      margin-left:30%;
+  }
+</style>
+<h2 >@ViewData["Title"]</h2>
+<div class="row w-25" style="background-color:black;margin-left:30%;margin-bottom:10%; border:1px solid grey;border-radius:5px; color:white; padding:1%;">
+    <div class="col-md-12">
+        <section>
+            <form method="post">
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-lg  btn-outline-success font-weight-bold">Log in</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a asp-page="./ForgotPassword"class="btn   btn-outline-danger font-weight-bold">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"class="btn  btn-outline-primary font-weight-bold">Register as a new user</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+ 
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

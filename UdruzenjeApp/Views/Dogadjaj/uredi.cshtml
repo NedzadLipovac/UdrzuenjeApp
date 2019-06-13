@@ -1,0 +1,65 @@
+﻿@model UdruzenjeApp.ViewModels.DogadjajDodajVM
+
+@{
+   ViewData["Title"] = "uredi";
+}
+
+@*<div class="alert-primary" role="alert" id="porukaBox">
+  This is a primary alert—check it out!
+</div>*@
+<style>
+    body {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+</style>
+<br />
+<h2 style="margin-left:25px">Edit Dogadjaja</h2>
+<hr />
+
+<div class="container " style="margin-left:25px; background-color:beige;">
+    <div >
+        <form asp-action="Snimi" asp-controller="Dogadjaj" class="form-group">
+
+            <input type="hidden" value="@Model.DogadjadajID" name="DogadjadajID" class="form-control" />
+            <input asp-for="UpraviteljID" hidden />
+
+            <div class="form-group">
+                <label asp-for="Naziv" class="control-label"></label>
+                <input asp-for="Naziv" class="form-control" />
+                <span asp-validation-for="Naziv" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="VrijemeOdrzavanja" class="control-label"></label>
+                <input asp-for="VrijemeOdrzavanja" class="form-control" />
+                <span asp-validation-for="VrijemeOdrzavanja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="opis" class="control-label"></label>
+                @*<input asp-for="opis" class="form-control" />*@
+                <textarea asp-for="opis" class="form-control"></textarea>
+                <span asp-validation-for="opis" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="ImeClana" class="control-label"></label>
+                <input asp-for="ImeClana"class="form-control" value="@Model.ImeClana" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="GradID" class="control-label">Grad</label>
+                <select asp-for="GradID" asp-items="Model.gradStavke" class="form-control"></select>
+
+            </div>
+
+
+            <div class="form-group " style="margin-bottom:50px;;">
+                <input type="submit" value="Snimi" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

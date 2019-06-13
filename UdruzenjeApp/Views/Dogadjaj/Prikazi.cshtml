@@ -1,0 +1,75 @@
+﻿@using UdruzenjeApp.ViewModels
+
+@model DogadjajiViewModel
+@{
+    //ViewData["Title"] = "Prikazi";
+    //var rezultat = (List<DogadjajiViewModel>)ViewData["podaci"];
+    int b = 0;
+}
+<style>
+    body {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+</style>
+
+<script src="~/js/ajaxScript.js"></script>
+<br />
+
+<div id="prikaz" class=" ">
+    <h2>Prikaz Dogadjaja</h2>
+    <br />
+    <form class="form-inline" asp-action="Prikazi" asp-controller="Dogadjaj" asp-route-NazivDogadjaja="@Model.NazivDogadjaja" asp-route-GradId="@Model.GradId">
+            <p>
+                Naziv: <input asp-for="NazivDogadjaja" class="form-control mr-3" type="text" >
+                <input class="btn btn-dark" type="submit" value="Filter" />
+            </p>
+            <p style="margin-left:3%;">
+                Grad: <select asp-for="GradId" asp-items="@Model.gradovi" class="form-control mr-3"></select>
+                <input class="btn btn-dark" type="submit" value="Filter" />
+            </p>
+        </form>
+    <table class="table table-hover table-bordered ">
+        <thead>
+            <tr>
+                <th>RB</th>
+                <th>Naziv</th>
+                <th>Vrijeme</th>
+                <th>Opis</th>
+                <th>Mjesto</th>
+                <th>Akcija</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var k in Model.rows) { }
+            @foreach (var x in Model.rows)
+            {
+                <tr>
+                    @{
+                        b++;
+                    }
+                    <td>@b</td>
+                    <td>@x.Naziv</td>
+                    <td>@x.VrijemeOdrzavanja</td>
+                    <td>@x.opis</td>
+                    <td>@x.grad</td>
+
+
+                    <td>
+                        <a href="/Dogadjaj/Delete?TrazeniID=@x.DogadjajID" class="btn btn-danger">  Obrisi </a>
+
+                        <a href="/Dogadjaj/Uredi?DogadjajID=@x.DogadjajID" class="btn btn-warning" ajax-url="/Dogadjaj/Uredi?DogadjajID=@x.DogadjajID" ajax-rezultat="nekiID" ajax-poziv="da">  Uredi </a>
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button id="idButton" class="btn btn-primary btn-lg" ajax-rezultat="nekiID" ajax-poziv="da" ajax-url="/Dogadjaj/Dodaj/">Dodaj</button>
+    <div id="nekiID">
+
+
+    </div>
+</div>

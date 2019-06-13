@@ -1,0 +1,45 @@
+﻿@using UdruzenjeApp.ViewModels
+@model List<UdruzenjeApp.ViewModels.GradDodajVM>
+
+@{
+    
+    int b = 0;
+}
+
+<div id="prikaz" class=" container">
+    <h2>Prikazi</h2>
+
+    <table class="table table-hover table-bordered ">
+        <thead>
+            <tr>
+                <th>RB</th>
+                <th>Naziv grada</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (GradDodajVM x in Model)
+            {
+                <tr>
+                    @{
+                        b++;
+                    }
+                    <td>@b</td>
+                    <td>@x.Naziv</td>
+
+                    <td>
+                        <a href="/Grad/Delete?TrazeniID=@x.GradID" class="btn btn-danger">  Obrisi </a>
+                        <a href="/Grad/Uredi?GradID=@x.GradID" class="btn btn-warning" ajax-url="/Grad/Uredi?GradID=@x.GradID" ajax-rezultat="nekiID" ajax-poziv="da">  Uredi </a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+        </table>
+    <button id="idButton" class="btn btn-success" ajax-rezultat="nekiID" ajax-poziv="da" ajax-url="/Grad/Dodaj/">Dodaj</button>
+    <div id="nekiID">
+
+
+    </div>
+</div>
+
+

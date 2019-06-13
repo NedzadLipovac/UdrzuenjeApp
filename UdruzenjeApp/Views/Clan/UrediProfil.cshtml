@@ -1,0 +1,126 @@
+﻿@model UdruzenjeApp.ViewModels.ClanUrediProfilVM
+@{
+    ViewData["Title"] = "urediProfil";
+    var k = ViewData["m"];
+
+}
+@*<img class="img img-circle w-100 h-100" alt="avatar" src="~/images/User/Anonymous03-wp1366x768.jpg">*@
+<style>
+    body {
+        align-content: center;
+    }
+
+    #frm {
+        margin-left: 10%;
+    }
+
+    h1 {
+        margin-left: 10%;
+    }
+</style>
+
+<br />
+
+
+
+<h1>Uredi Profil</h1>
+<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="/css/modern-business.css" rel="stylesheet" />
+<form id="frm" class="form-horizontal position-static" enctype="multipart/form-data" method="post" asp-action="UrediProfil" >
+    <input asp-for="Id" hidden />
+    <hr />
+
+    @*<div class="container">
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="text-center">
+
+                    <img class="img img-circle w-100 h-100" alt="avatar" src="~/images/User/@Model.SlikaURL">
+
+
+                    <input type="file" asp-for="SlikaURL">
+                </div>
+            </div>*@
+
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+            <div class="text-center">
+                <img src="~/images/User/@Model.SlikaURL" class="w-100 h-100 img-rounded" alt="avatar">
+                <h6>Upload a different photo...</h6>
+
+                <input type="file" class="form-control" asp-for="SlikaURL">
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+            @*<div class="alert alert-info alert-dismissable">
+                    <a class="panel-close close" data-dismiss="alert">×</a>
+                    <i class="fa fa-coffee"></i>
+                    This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                </div>*@
+            <h3>Personal info</h3>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Ime:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" asp-for="Ime">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Prezime:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" asp-for="Prezime">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Adresa:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" asp-for="Adresa">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Email:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" asp-for="Email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Broj Telefona:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" asp-for="BrojTelefona">
+                </div>
+            </div>
+
+            <input type="submit" value="Spremi" class="btn btn-lg  btn-outline-success font-weight-bold ml-2" />
+            @*  <button  value="Dodaj 2FactorAuth" class="btn btn-lg  btn-outline-danger font-weight-bold ml-5 " asp-action="RedirectTo2Factor" asp-controller="Home" />*@
+            <a class="btn btn-lg  btn-outline-danger font-weight-bold ml-5 " asp-action="RedirectTo2Factor" asp-controller="Home">Dodaj 2FactorAuth</a>
+            <a class="btn btn-lg  btn-outline-warning font-weight-bold ml-5 " asp-action="RedirectToChange" asp-controller="Home"
+                ajax-rezultat="nekiID" ajax-poziv="da"
+            >Promjena Password-a</a>
+        </div>
+    </div>
+
+
+    <hr>
+
+</form>
+<div id="nekiID">
+
+</div>

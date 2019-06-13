@@ -1,0 +1,61 @@
+﻿@model UdruzenjeApp.ViewModels.PrijedlogDogadjajaPrikaziVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    th{
+        text-align:center;
+    }
+    td{
+        text-align: center;
+    }
+    body{
+        padding-left:1%;
+        padding-right:1%;
+    }
+</style>
+<br />
+<h2>Lista prijedloga dogadjaja</h2>
+<table class="table table-bordered" >
+    <thead>
+        <tr>
+            <th>Naziv Prijedloga</th>
+            <th>Opis Prijedloga </th>
+            <th>Predlaze clan</th>
+            <th>Akcija</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+         @foreach (var x in Model.podaci)
+         {
+             <tr>
+                 <td>@x.NazivPrijedloga</td>
+                 <td>@x.OpisPredlozenogDogadjaja</td>
+                 <td>
+                     @foreach (var k in Model.clanStavke)
+                     {
+                         @if (k.Id == x.ClanID)
+                         {
+                             @k.Ime
+                         }
+                     }
+
+                 </td>
+                 <td>
+                     <a href="/PredlozeniDogadjaj/Uredi?PredlozeniDogadjajID=@x.PredlozeniDogadjajID" class="btn btn-danger"  ajax-url="/PredlozeniDogadjaj/Uredi?PredlozeniDogadjajID=@x.PredlozeniDogadjajID" ajax-rezultat="nekiID" ajax-poziv="da">Uredi</a>
+                     <a href="/PredlozeniDogadjaj/Obrisi?PredlozeniDogadjajID=@x.PredlozeniDogadjajID" class="btn btn-warning">Obrisi</a>
+
+                 </td>
+             </tr>
+         }
+
+    </tbody>
+</table>
+<a href="/PredlozeniDogadjaj/Dodaj"  class="btn btn-primary btn-lg"
+     ajax-url="/PredlozeniDogadjaj/Dodaj" ajax-rezultat="nekiID" ajax-poziv="da">Dodaj Novi</a>
+<div class="active" style="margin-top:1%;padding:2%;" id="nekiID">
+
+</div>

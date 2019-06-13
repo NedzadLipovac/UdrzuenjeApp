@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/css/modern-business.css" rel="stylesheet" />
+
+    <environment include="Development">
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        @*<script src="~/js/site.min.js" asp-append-version="true"></script>
+            <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
+    </environment>
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/modern-business.css" rel="stylesheet">
+    <script src="~/js/ajaxScript.js"></script>
+  
+    @RenderSection("Scripts", required: false)
+
+</head>
+<body>
+
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Ispit_2017_02_15</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Home Page</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    @*@if (User.IsInRole("Admin"))
+                    {*@
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Prikazi" asp-controller="Clan">Clanovi</a>
+                        </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ToBeDone</a>
+                    </li>
+                    @*@if (User.IsInRole("Admin"))
+                    {*@
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Prikazi" asp-controller="Dogadjaj">Dogadjaji</a>
+                        </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Index" asp-controller="PredlozeniDogadjaj">Predlozi Dogadjaj</a>
+                    </li>
+
+                    @*<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Portfolio
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                    <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
+                    <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
+                    <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
+                    <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
+                    <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
+                </div>
+            </li>*@
+                    @*<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Blog
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                    <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
+                    <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
+                    <a class="dropdown-item" href="blog-post.html">Blog Post</a>
+                </div>
+            </li>*@
+                    @*<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Profil
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <a class="dropdown-item" asp-controller="Home" asp-action="RedirectToLogin">Login</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="RedirectToRegister">Registracija</a>
+
+                            }
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a class="dropdown-item" asp-controller="Clan" asp-action="UrediProfil">Uredi Profil</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="RedirectToLogout">LogOut</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="RedirectToLogin">Login</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="RedirectToRegister">Registracija</a>
+                            }
+
+
+                        </div>
+                    </li>*@
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+
+                        <li>
+                            <a class="nav-link" asp-controller="Clan" asp-action="UrediProfil">Uredi Profil</a>
+                        </li>
+
+
+                        <li style="color:azure;">
+                            <a class="nav-link" href="#">  Hello, @User.Identity.Name</a>
+                        </li>
+
+                    }
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+                { 
+                    <li class="float-right navbar">
+                        <a class="btn-outline-info btn" asp-controller="Home" asp-action="RedirectToLogout">LogOut</a>
+
+                    </li>
+                }
+                else{ 
+                    <li class="navbar">
+                        <a class="btn-outline-info btn" asp-controller="Home" asp-action="RedirectToLogin">Login</a>
+
+                    </li>
+                    <li>
+                        <a class="btn-outline-info btn" asp-controller="Home" asp-action="RedirectToRegister">Registracija</a>
+
+                    </li>
+                
+                }
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+
+
+    <div class="py-3 bg-dark navbar navbar-expand-lg fixed-bottom " style="padding-bottom: 70px;">
+        <div class="container justify-content-center">
+            <p  class="m-0 text-center text-white">Copyright &copy; UdruzenjeApp 2019</p>
+        </div>
+    </div>
+
+    @*<div class="py-5 bg-dark navbar-expand-lg navbar-fixed-bottom"
+        >
+                 <div class="container">
+                     <p class="m-0 text-center text-white">Copyright &copy; UdruzenjeApp 2019</p>
+                 </div>*@
+    <!-- /.container -->
+   
+
+</body>
+</html>
